@@ -13,9 +13,9 @@ class Crypto () :
         self.sitekey = ""
 
 
-    def setSiteKey (self) :
-        self.sitekey = self.keyGen(128)
-        return self.sitekey
+    def setSiteKey (self, sitekey) :
+        self.sitekey = sitekey
+
 
 
     def keyGen (self, length) :
@@ -105,13 +105,3 @@ class Crypto () :
             key += keyArr[i]
 
         return key
-
-
-test = Crypto()
-test.setSiteKey()
-
-newKey = test.keyGen(128)
-scramble = test.scramble(newKey)
-
-unscramble = test.unscramble(scramble)
-print unscramble == newKey
